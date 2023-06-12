@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.ixuea.courses.helloworld"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="29" />
+
+    <dist:module dist:instant="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <receiver
+            android:name="com.ixuea.courses.helloworld.IntentStudy.ForceOfflineBroadcast.ForceOfflineReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.ForceOfflineBroadcast.ForceOfflineActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.ForceOfflineBroadcast.BaseActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.BroadcastStudy.LocalBroadcastActivity" />
+
+        <receiver
+            android:name="com.ixuea.courses.helloworld.IntentStudy.BroadcastStudy.LocalBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.ixuea.courses.helloworld.LOCAL_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.ixuea.courses.helloworld.IntentStudy.BroadcastStudy.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter android:priority="300" >
+
+                <!-- 2147483647 -->
+                <action android:name="com.ixuea.courses.helloworld.MY_BROADCAST" />
+                <action android:name="com.ixuea.courses.helloworld.LOCAL_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.ixuea.courses.helloworld.IntentStudy.BroadcastStudy.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.BroadcastStudy.NetworkBorderCastActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.IntentIndex" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="com.ixuea.courses.helloworld.FORCE_OFFLINE"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.SecondIntent" />
+        <activity android:name="com.ixuea.courses.helloworld.IntentStudy.FirstIntent" />
+        <activity android:name="com.ixuea.courses.helloworld.Chat.ChatActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.recycleview.StaggeredActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.Menu.ContextMenuActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.Menu.OptionMenu2Activity" />
+        <activity android:name="com.ixuea.courses.helloworld.Menu.OptionMenuActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.WebViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.tabBar.TabBar" />
+        <activity android:name="com.ixuea.courses.helloworld.FilterBar.FilterBar" />
+        <activity android:name="com.ixuea.courses.helloworld.FilterBar.BaseActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.tabPage.TabPage" />
+        <activity android:name="com.ixuea.courses.helloworld.recycleview.LinearRecycleViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.recycleview.RecycleViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.CheckBoxActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.ButtonActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.RadioButtonActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.EditTextActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.TextViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ixuea.courses.helloworld.BascialView.ImageViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.listview.ListViewActivity" />
+        <activity android:name="com.ixuea.courses.helloworld.gridview.GridViewActivity" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.ixuea.courses.helloworld.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
